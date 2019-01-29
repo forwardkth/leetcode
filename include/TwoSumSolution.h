@@ -53,7 +53,7 @@ class TwoSumSolution1
   }
 };
 
-//Goole Test cases
+//Google Test cases
 TEST(TwoSum_Test, testVecPos)
 {
   int target = 9;

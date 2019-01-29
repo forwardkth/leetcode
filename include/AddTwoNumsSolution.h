@@ -74,7 +74,7 @@ void deleteNode(ListNode* lx)
     delete node;
   }
 }
-//Goole Test cases
+//Google Test cases
 TEST(AddTwoNums_Test, testPos)
 {
   ListNode* l1 = new ListNode(2);
