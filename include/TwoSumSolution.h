@@ -9,6 +9,7 @@
 //Because nums[0] + nums[1] = 2 + 7 = 9,
 //return [0, 1].
 #include<vector>
+#include<string>
 #include<unordered_map>
 #include <gtest/gtest.h>
 
@@ -20,58 +21,53 @@ class TwoSumSolution1
   vector<int> twoSum(vector<int>& nums, int target)
   {
     unordered_map<int, int> num_map;
-    for(size_t i = 0; i < nums.size(); ++i)
+    for (size_t i = 0; i < nums.size(); ++i)
     {
       num_map[nums[i]] = i;
     }
     vector<int> result;
-    for(size_t i = 0; i < nums.size(); ++i)
+    for (size_t i = 0; i < nums.size(); ++i)
     {
       int gap = target - nums[i];
-      if(num_map.find(gap) != num_map.end() && (unsigned int)num_map[gap] != i)
+      if (num_map.find(gap) != num_map.end()
+          && (unsigned int) num_map[gap] != i)
       {
         result.push_back(i);
         result.push_back(num_map[gap]);
         return result;
       }
     }
-    throw "there is no TwoSum solution!";
+    string s("there is no TwoSum solution!");
+    throw s;
   }
 };
 
-//Run TwoSum solution
-void runTwoSum()
-{
-  TwoSumSolution1 ts;
-  int target = 9;
-  vector<int> nums;
-  nums.push_back(2);
-  nums.push_back(5);
-  nums.push_back(7);
-  nums.push_back(11);
-  vector<int> result;
-  try
-  {
-    result = ts.twoSum(nums, target);
-  }
-  catch (string &i)
-  {
-    std::abort();
-  }
-  printf("the TwoSum solution is: [ ");
-  for(size_t i = 0; i < result.size(); ++i)
-  {
-    printf("%d ", result[i]);
-  }
-  printf("]\n");
-}
-
 //Goole Test cases
-TEST(TwoSum_Test, testVec)
+TEST(TwoSum_Test, testVecPos)
 {
   int target = 9;
-  vector<int> nums {2, 5, 7, 11};
-  vector<int> result {0, 2};
+  vector<int> nums{ 2, 5, 7, 11 };
+  vector<int> result{ 0, 2 };
   TwoSumSolution1 ts;
   EXPECT_EQ(ts.twoSum(nums, target), result);
+  EXPECT_NO_THROW(ts.twoSum(nums, target));
+}
+
+TEST(TwoSum_Test, testVecNeg)
+{
+  int target = 9;
+  vector<int> nums{ -2, 5, 7, 11 };
+  vector<int> result{ 0, 3 };
+  TwoSumSolution1 ts;
+  EXPECT_EQ(ts.twoSum(nums, target), result);
+  EXPECT_NO_THROW(ts.twoSum(nums, target));
+}
+
+TEST(TwoSum_Test, testVecException)
+{
+  int target = 9;
+  vector<int> nums{ 2, 5, 6, 11 };
+  TwoSumSolution1 ts;
+  EXPECT_ANY_THROW(ts.twoSum(nums, target));
+  EXPECT_THROW(ts.twoSum(nums, target), string);
 }
