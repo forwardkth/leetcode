@@ -11,7 +11,7 @@
 #include <string>
 
 #include "../include/TwoSumSolution.h"
-
+#include "../include/AddTwoNumsSolution.h"
 
 
 int main(int argc, char* argv[])
