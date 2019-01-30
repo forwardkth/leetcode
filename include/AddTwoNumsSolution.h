@@ -19,9 +19,6 @@
 #ifndef INCLUDE_ADDTWONUMSSOLUTION_H_
 #define INCLUDE_ADDTWONUMSSOLUTION_H_
 
-#include<vector>
-#include<string>
-#include<unordered_map>
 #include <gtest/gtest.h>
 
 using namespace std;
