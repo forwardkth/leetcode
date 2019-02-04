@@ -12,6 +12,7 @@
 
 #include "../include/TwoSumSolution.h"
 #include "../include/AddTwoNumsSolution.h"
+#include "../include/AddTwoNumsSolutionSmartPtr.h"
 
 
 int main(int argc, char* argv[])

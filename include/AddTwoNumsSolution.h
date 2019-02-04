@@ -20,6 +20,7 @@
 #define INCLUDE_ADDTWONUMSSOLUTION_H_
 
 #include <gtest/gtest.h>
+#include <memory>
 
 using namespace std;
 
@@ -28,7 +29,11 @@ struct ListNode
 {
   int val;
   ListNode *next;
-  ListNode(int x) : val(x), next(NULL) {}
+  ListNode(int x)
+      : val(x),
+        next(NULL)
+  {
+  }
 };
 
 class AddTwoNumsSolution1
@@ -50,27 +55,31 @@ class AddTwoNumsSolution1
       presult->next = new ListNode(vsum);
     }
     if (carry > 0)
+    {
       presult->next = new ListNode(carry);
-    ListNode *rtresult = tresult -> next;
+    }
+    ListNode *rtresult = tresult->next;
     delete tresult;
     return rtresult;
   }
 };
 
+//using the shared_ptr
 void deleteNode(ListNode* lx)
 {
   ListNode* node = lx;
-  while(lx -> next != NULL)
+  while(lx -> next != nullptr)
   {
     ListNode* node = lx;
     lx = lx -> next;
     delete node;
   }
-  if(lx -> next == NULL)
+  if(lx -> next == nullptr)
   {
     delete node;
   }
 }
+
 //Google Test cases
 TEST(AddTwoNums_Test, testPos)
 {
@@ -90,5 +99,7 @@ TEST(AddTwoNums_Test, testPos)
   EXPECT_NO_THROW(ats.AddTwoNums(l1, l2));
   deleteNode(l1);
   deleteNode(l2);
+  deleteNode(result);
 }
+
 #endif /* INCLUDE_ADDTWONUMSSOLUTION_H_ */
