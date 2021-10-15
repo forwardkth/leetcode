@@ -1,33 +1,28 @@
-# Prerequisites
-*.d
-
-# Compiled Object files
-*.slo
-*.lo
+*~
 *.o
-*.obj
+*.pyc
+*.bak
+CATKIN_IGNORE
+build/
+devel/
+log/
+install/
+.vscode/
+.devcontainer
+.devcontainer.json
+.catkin_workspace
+.vscode/
+executable/ros2_foxy/log/
+executable/ros2_foxy/install/
+executable/ros2_foxy/build/
+executable/ros_melodic/devel/
+executable/ros_melodic/build/
+libs/docs/generated
 
-# Precompiled Headers
-*.gch
-*.pch
+apps/ros/1_melodic/src/CMakeLists.txt
 
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
-*.exe
-*.out
-*.app
-/Debug/
+apps/ros/2_foxy/src/examples/CMakeCache.txt
+apps/ros/2_foxy/src/examples/CTestConfiguration.ini
+apps/ros/2_foxy/src/examples/Makefile
+apps/ros/2_foxy/src/examples/example_publisher/Makefile
+apps/ros/2_foxy/src/examples/example_subscriber/Makefile
