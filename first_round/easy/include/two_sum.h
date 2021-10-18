@@ -5,9 +5,11 @@
  *      Author: chao
  */
 //Description:
-//Given an array of integers, return indices of the two numbers such that they add up to a specific target.
+//Given an array of integers, return indices of the two numbers such that they 
+//add up to a specific target.
 //
-//You may assume that each input would have exactly one solution, and you may not use the same element twice.
+//You may assume that each input would have exactly one solution, and you may 
+//not use the same element twice.
 //
 //Example:
 //
@@ -34,12 +36,12 @@ class TwoSumSolution1
     std::vector<int> result;
     for (size_t i = 0; i < nums.size(); ++i)
     {
-      int gap = target - nums[i];
-      if (num_map.find(gap) != num_map.end()
-          && (unsigned int) num_map[gap] != i)
+      int diff = target - nums[i];
+      if (num_map.find(diff) != num_map.end()
+          && (unsigned int) num_map[diff] != i)
       {
         result.push_back(i);
-        result.push_back(num_map[gap]);
+        result.push_back(num_map[diff]);
         return result;
       }
     }
