@@ -18,21 +18,47 @@
 
 #pragma once
 
-#include<unordered_map>
-#include<string>
-#include<vector>
+#include <unordered_map>
+#include <string>
+#include <vector>
 
 using namespace std;
 
-class Solution 
+class Solution
 {
  public:
-   string longestCommonPrefix(vector<string>& strs) 
+   string longestCommonPrefix(vector<string>& strs)
    {
      if(0 == strs.size())
      {
        string s{};
        return s;
-     }     
+     }
+     long unsigned int lenth_min = 200;
+     string min_str{""};
+     for(vector<string>::iterator iter = strs.begin();
+         iter != strs.end(); ++iter)
+     {
+       if((*iter).length() < lenth_min)
+       {
+         lenth_min = (*iter).length();
+         min_str = (*iter);
+       }
+     }
+     string result{""};
+     for(long unsigned int index = 0 ; index < lenth_min ; ++index)
+     {
+       for(vector<string>::iterator iter = strs.begin();
+           iter != strs.end(); ++iter)
+       {
+         if(min_str[index] != (*iter)[index])
+         {
+           return result;
+         }
+       }
+       result += min_str[index];
+     }
+     return result;
    }
 };
+
