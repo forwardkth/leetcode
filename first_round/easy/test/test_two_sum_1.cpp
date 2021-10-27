@@ -1,4 +1,4 @@
-#include "../include/two_sum.h"
+#include "../include/two_sum_1.h"
 #include <gtest/gtest.h>
 
 //Google Test cases
