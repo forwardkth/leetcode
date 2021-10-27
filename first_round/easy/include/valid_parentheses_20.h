@@ -1,20 +1,37 @@
-// Write a function to find the longest common prefix string amongst 
-// an array of strings.
-// If there is no common prefix, return an empty string "".
+// Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
+
+// An input string is valid if:
+
+// Open brackets must be closed by the same type of brackets.
+// Open brackets must be closed in the correct order.
+ 
 
 // Example 1:
-// Input: strs = ["flower","flow","flight"]
-// Output: "fl"
+
+// Input: s = "()"
+// Output: true
 // Example 2:
 
-// Input: strs = ["dog","racecar","car"]
-// Output: ""
-// Explanation: There is no common prefix among the input strings.
+// Input: s = "()[]{}"
+// Output: true
+// Example 3:
+
+// Input: s = "(]"
+// Output: false
+// Example 4:
+
+// Input: s = "([)]"
+// Output: false
+// Example 5:
+
+// Input: s = "{[]}"
+// Output: true
  
+
 // Constraints:
-// 1 <= strs.length <= 200
-// 0 <= strs[i].length <= 200
-// strs[i] consists of only lower-case English letters.
+
+// 1 <= s.length <= 104
+// s consists of parentheses only '()[]{}'.
 
 #pragma once
 
@@ -24,41 +41,10 @@
 
 using namespace std;
 
-class Solution
-{
- public:
-   string longestCommonPrefix(vector<string>& strs)
-   {
-     if(0 == strs.size())
-     {
-       string s{};
-       return s;
-     }
-     long unsigned int lenth_min = 200;
-     string min_str{""};
-     for(vector<string>::iterator iter = strs.begin();
-         iter != strs.end(); ++iter)
-     {
-       if((*iter).length() < lenth_min)
-       {
-         lenth_min = (*iter).length();
-         min_str = (*iter);
-       }
-     }
-     string result{""};
-     for(long unsigned int index = 0 ; index < lenth_min ; ++index)
-     {
-       for(vector<string>::iterator iter = strs.begin();
-           iter != strs.end(); ++iter)
-       {
-         if(min_str[index] != (*iter)[index])
-         {
-           return result;
-         }
-       }
-       result += min_str[index];
-     }
-     return result;
-   }
+class Solution {
+public:
+    bool isValid(string s) {
+        
+    }
 };
 
