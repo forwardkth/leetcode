@@ -1,4 +1,5 @@
-// Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
+// Given a string s containing just the characters '(', ')', '{', '}', 
+// '[' and ']', determine if the input string is valid.
 
 // An input string is valid if:
 
@@ -10,41 +11,62 @@
 
 // Input: s = "()"
 // Output: true
-// Example 2:
 
+// Example 2:
 // Input: s = "()[]{}"
 // Output: true
-// Example 3:
 
+// Example 3:
 // Input: s = "(]"
 // Output: false
-// Example 4:
 
+// Example 4:
 // Input: s = "([)]"
 // Output: false
-// Example 5:
 
+// Example 5:
 // Input: s = "{[]}"
 // Output: true
  
 
 // Constraints:
-
-// 1 <= s.length <= 104
+// 1 <= s.length <= 10的四次方
 // s consists of parentheses only '()[]{}'.
 
 #pragma once
 
-#include <unordered_map>
 #include <string>
-#include <vector>
+#include <stack>
 
 using namespace std;
-
+// use stack
 class Solution {
 public:
-    bool isValid(string s) {
-        
+  bool isValid(string s) 
+  {
+    if(s.length() < 1 || s.length() % 2 != 0)
+    {
+      return false;
     }
+    stack<char> stk;
+    for(auto i : s)
+    {
+      if(i == '[' or i== '{' or i == '(')
+      {
+        stk.push(i);
+      }
+      else if(stk.empty() or (stk.top() == '[' and i != ']')
+              or (stk.top() == '{' and i != '}')
+              or (stk.top() == '(' and i != ')'))
+      {
+        return false;
+      }
+      else
+      {
+        stk.pop();
+      }
+    }
+    return stk.empty();
+  }
 };
 
