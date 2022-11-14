@@ -38,6 +38,11 @@ class Solution
      quickSort(nums, pivot + 1, ptr_right);
    }
 
+// 每次合并操作的平均时间复杂度为O(n)，而完全二叉树的深度为|log2n|。
+// 总的平均时间复杂度为O(nlogn)。而且，归并排序的最好，最坏，平均时间复杂度均为O(nlogn)
+// https://www.cnblogs.com/chengxiao/p/6194356.html
+// https://www.runoob.com/w3cnote/merge-sort.html
+// https://zhuanlan.zhihu.com/p/124356219
    void mergeSort(vector<int> &nums,
                   int ptr_left, int ptr_right, vector<int> &temp) 
    {
