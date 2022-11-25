@@ -28,9 +28,9 @@ struct ListNode
 {
   int val;
   ListNode *next;
-  ListNode(int x)
+  explicit ListNode(int x)
       : val(x),
-        next(NULL)
+        next(nullptr)
   {
   }
 };
@@ -38,28 +38,28 @@ struct ListNode
 class AddTwoNumsSolution1
 {
  public:
-  ListNode* AddTwoNums(ListNode* l1, ListNode* l2)
+  static ListNode* AddTwoNums(ListNode* l1, ListNode* l2)
   {
     int carry = 0;
-    ListNode* presult = new ListNode(0);
-    ListNode *tresult = presult;
+    auto* pListNode = new ListNode(0);
+    ListNode *node = pListNode;
     for (ListNode *pl1 = l1, *pl2 = l2; ((pl2 != nullptr) || (pl1 != nullptr));
-        pl1 = (pl1 == nullptr ? nullptr : pl1->next), pl2 = (
-            pl2 == nullptr ? nullptr : pl2->next), presult = presult->next)
+         pl1 = (pl1 == nullptr ? nullptr : pl1->next), pl2 = (
+            pl2 == nullptr ? nullptr : pl2->next), pListNode = pListNode->next)
     {
       int vl1 = (pl1 == nullptr ? 0 : pl1->val);
       int vl2 = (pl2 == nullptr ? 0 : pl2->val);
-      int vsum = (vl1 + vl2 + carry) % 10;
+      int i = (vl1 + vl2 + carry) % 10;
       carry = (vl1 + vl2 + carry) / 10;
-      presult->next = new ListNode(vsum);
+        pListNode->next = new ListNode(i);
     }
     if (carry > 0)
     {
-      presult->next = new ListNode(carry);
+        pListNode->next = new ListNode(carry);
     }
-    ListNode *rtresult = tresult->next;
-    delete tresult;
-    return rtresult;
+    ListNode *pNode = node->next;
+    delete node;
+    return pNode;
   }
 };
 
@@ -69,9 +69,9 @@ void deleteNode(ListNode* lx)
   ListNode* node = lx;
   while(lx -> next != nullptr)
   {
-    ListNode* node = lx;
+    ListNode* pNode = lx;
     lx = lx -> next;
-    delete node;
+    delete pNode;
   }
   if(lx -> next == nullptr)
   {

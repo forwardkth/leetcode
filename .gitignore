@@ -38,3 +38,13 @@ cmake-build-debug/.cmake/api/v1/query/
 cmake-build-debug/
 
 .idea/
+
+cmake-build-debug-/.cmake/api/v1/query/
+
+cmake-build-debug-/.cmake/api/v1/reply/
+
+cmake-build-debug-/extern/google-test/googletest/generated/
+
+cmake-build-debug-/CMakeFiles/
+
+cmake-build-debug-/
