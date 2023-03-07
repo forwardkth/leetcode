@@ -55,4 +55,4 @@ endif()
 add_subdirectory(extern)
 add_subdirectory(first_round)
 # add_subdirectory(second_round)
-
+add_subdirectory(cv_src)
