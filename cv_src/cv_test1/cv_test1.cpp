@@ -7,6 +7,10 @@
 #include <iostream>
 #include <Eigen/Dense>
 #include <opencv2/opencv.hpp>
+#include <pcl/point_types.h>
+#include <pcl/io/pcd_io.h> 
+#include <pcl/visualization/pcl_visualizer.h>
+
 using namespace std;
 using namespace cv;
 
@@ -60,6 +64,7 @@ void eigenTest() {
   cout << mat_33.inverse() << endl;
   cout << matrix_22.inverse() << endl;
   cout << matrix_22.inverse() * matrix_22 << endl;
+  Eigen::Matrix3f::Identity();
 }
  
 int main(int argc, char **argv){
@@ -67,5 +72,8 @@ int main(int argc, char **argv){
   
   // eigen test
   eigenTest();
+  typedef pcl::PointXYZRGB PointT; 
+  typedef pcl::PointCloud<PointT> PointCloud;
+  PointCloud::Ptr pointCloud( new PointCloud );
   return 0;
 }
