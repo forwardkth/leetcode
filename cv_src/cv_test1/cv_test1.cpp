@@ -66,14 +66,20 @@ void eigenTest() {
   cout << matrix_22.inverse() * matrix_22 << endl;
   Eigen::Matrix3f::Identity();
 }
- 
-int main(int argc, char **argv){
-  // capImages(argv);
-  
-  // eigen test
-  eigenTest();
+
+void pclTest() {
   typedef pcl::PointXYZRGB PointT; 
   typedef pcl::PointCloud<PointT> PointCloud;
   PointCloud::Ptr pointCloud( new PointCloud );
+  
+}
+ 
+int main(int argc, char **argv){
+  // capImages(argv);
+  // capImages(argv);
+  // eigen test
+  eigenTest();
+  // pcl test
+  pclTest();
   return 0;
 }
