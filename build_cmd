@@ -1,4 +1,10 @@
 cmake -B build/release -S . -DCMAKE_BUILD_TYPE=Release
+
+cmake -B build/release -S . -DCMAKE_CXX_COMPILER=/opt/homebrew/Cellar/gcc/12.2.0/bin/g++-12 -DCMAKE_CXX_COMPILER=/opt/homebrew/Cellar/gcc/12.2.0/bin/g++-12 -DCMAKE_BUILD_TYPE=Release
+
 cmake --build build/release --target all --parallel
 
 cmake --build build/release --target test --parallel
+
+
+
