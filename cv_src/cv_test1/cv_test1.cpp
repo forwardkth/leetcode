@@ -17,7 +17,7 @@ using namespace cv;
 void capImages(char **argv) {
   // Create a VideoCapture object and open the input file
   // If the input is the web camera, pass 0 instead of the video file name
-  VideoCapture cap(argv[1]); 
+  VideoCapture cap(0); 
   // Check if camera opened successfully
   if(!cap.isOpened()){
     cout << "Error opening video stream or file" << endl;
@@ -75,8 +75,7 @@ void pclTest() {
 }
  
 int main(int argc, char **argv){
-  // capImages(argv);
-  // capImages(argv);
+  capImages(argv);
   // eigen test
   eigenTest();
   // pcl test

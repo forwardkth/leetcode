@@ -4,9 +4,10 @@
 project(cv_test1 VERSION 0.0.0 LANGUAGES CXX)
 
 set(BINARY cv_test1)
-set(Qt5_DIR /opt/homebrew/Cellar/qt@5/5.15.8_2/lib/cmake/Qt5)
+enable_language(C)
+# set(Qt5_DIR /opt/homebrew/Cellar/qt@5/5.15.8_2/lib/cmake/Qt5)
 # set(JSONCPP_DIR /opt/homebrew/Cellar/jsoncpp/1.9.5/lib/pkgconfig)
-
+find_package(MPI COMPONENTS C CXX REQUIRED)
 find_package(Eigen3 3.4 REQUIRED NO_MODULE)
 find_package(PCL 1.13 REQUIRED)
 find_package(OpenCV 4.7.0 REQUIRED)
